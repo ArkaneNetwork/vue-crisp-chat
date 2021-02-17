@@ -1,6 +1,6 @@
 {
   "name": "@arkane-network/vue-crisp-chat",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue.js plugin for Crisp Chat",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",
