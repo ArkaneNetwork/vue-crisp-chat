@@ -17,7 +17,6 @@ module.exports = {
       }
 
       if(hideOnLoad) {
-          window.$crisp = [];
           window.$crisp.push(['do', 'chat:hide']);
       }
 
