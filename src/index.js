@@ -1,5 +1,5 @@
 module.exports = {
-    install(Vue, { websiteId, disabled }) {
+    install(Vue, { websiteId, disabled, hideOnLoad }) {
       if (!disabled && (!websiteId || websiteId.length === 0)) {
         console.warn("Please provide a Crisp Chat Website ID");
       } else {
@@ -12,6 +12,13 @@ module.exports = {
 
       if (disabled) {
         window.$crisp = disabledLogger;
+      } else {
+        window.$crisp = [];
+      }
+
+      if(hideOnLoad) {
+          window.$crisp = [];
+          window.$crisp.push(['do', 'chat:hide']);
       }
 
       const root = new Vue()
@@ -27,8 +34,6 @@ module.exports = {
         if (isLoaded) {
           return;
         }
-
-        delete window.$crisp;
 
         const first = document.getElementsByTagName("script")[0];
         first.parentNode.insertBefore(root._script, first);
